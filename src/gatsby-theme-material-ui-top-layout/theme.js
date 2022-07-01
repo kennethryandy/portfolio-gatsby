@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import darkScrollbar from '@mui/material/darkScrollbar';
 // Calibre font
 import calibreThinWoff2 from "../assets/fonts/calibre/Calibre-Thin.woff2";
@@ -123,4 +123,4 @@ const theme = createTheme({
 	}
 });
 
-export default theme;
+export default responsiveFontSizes(theme);

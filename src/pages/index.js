@@ -3,7 +3,7 @@ import Seo from "../components/seo"
 import { styled } from '@mui/material/styles';
 // Components
 import Layout from '../components/layout';
-// import Hero from "../components/Hero/Hero";
+import Hero from "../components/Hero/hero";
 
 const Section = styled('section')`
 	min-height: 100vh;
@@ -17,7 +17,7 @@ const IndexPage = () => (
 	<Layout>
 		<Seo title="Home" />
 		<Section>
-			{/* <Hero /> */}
+			<Hero />
 		</Section>
 		<Section />
 	</Layout>
