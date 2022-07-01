@@ -38,6 +38,10 @@
   content: "\e903";
 }
 
+::selection {
+	background-color: #233554;
+	color: #ccd6f6;
+}
 
 @keyframes rubberBand {
   0% {
