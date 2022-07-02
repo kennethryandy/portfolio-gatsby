@@ -2,15 +2,10 @@ import React from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { IntroductionText, HeroButton, HeaderText } from './heroStyles';
+import useToggleRubberBand from '../../hooks/useToggleRubberBand';
 
 const Hero = () => {
-
-	const toggleRubberBand = e => {
-		e.currentTarget.classList.add('rubberBand');
-		e.currentTarget.addEventListener('animationend', (el) => {
-			el.target.classList.remove('rubberBand');
-		});
-	}
+	const toggleRubberBand = useToggleRubberBand();
 
 	return (
 		<>

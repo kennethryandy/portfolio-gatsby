@@ -44,6 +44,14 @@ export const StyledFloatingNav = styled('div')(({ theme }) => ({
 			margin: '0 auto'
 		}
 	},
+	[theme.breakpoints.down('lg')]: {
+		"&.left": {
+			left: theme.spacing(3),
+		},
+		"&.right": {
+			right: theme.spacing(3),
+		},
+	},
 	[theme.breakpoints.down('md')]: {
 		display: 'none'
 	}

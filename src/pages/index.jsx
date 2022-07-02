@@ -4,22 +4,26 @@ import { styled } from '@mui/material/styles';
 // Components
 import Layout from '../components/layout';
 import Hero from "../components/Hero/hero";
+import About from "../components/About/about";
 
 const Section = styled('section')`
 	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: center;
 `;
 
 const IndexPage = () => (
 	<Layout>
 		<Seo title="Home" />
-		<Section>
+		<Section sx={{
+			display: 'flex',
+			flexDirection: 'column',
+			alignItems: 'flex-start',
+			justifyContent: 'center'
+		}}>
 			<Hero />
 		</Section>
-		<Section />
+		<Section>
+			<About />
+		</Section>
 	</Layout>
 )
 

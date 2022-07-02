@@ -41,7 +41,8 @@ const theme = createTheme({
 			fontWeight: 500
 		},
 		body1: {
-			fontSize: "1.25rem"
+			fontSize: "1.25rem",
+			lineHeight: 1.3
 		},
 		navLink: {
 			fontFamily: ['Fira Code', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto',].join(','),
@@ -62,6 +63,37 @@ const theme = createTheme({
 						fontWeight: 400
 					})
 				})
+			}
+		},
+		MuiLink: {
+			styleOverrides: {
+				underlineHover: {
+					position: 'relative',
+					"&::after": {
+						content: '""',
+						position: 'absolute',
+						left: 0,
+						bottom: 0,
+						width: 0,
+						height: '1px',
+						display: 'inline-block',
+						background: '#64FFDA',
+						transition: 'width 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms'
+					},
+					"&:hover": {
+						textDecoration: "none",
+						"&::after": {
+							width: '100%'
+						}
+					}
+				}
+			}
+		},
+		MuiTypography: {
+			styleOverrides: {
+				gutterBottom: {
+					marginBottom: '1rem'
+				}
 			}
 		},
 		MuiCssBaseline: {

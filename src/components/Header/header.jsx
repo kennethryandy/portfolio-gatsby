@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 // Styled components
 import { Brand, StyledAppBar, NavLinks } from './headerStyled';
@@ -26,16 +27,16 @@ const Header = () => {
 					<Box sx={{ flexGrow: 1 }} />
 					<NavLinks>
 						<li className="nav-link">
-							<Link to="/about">About</Link>
+							<MuiLink underline="hover" component={Link} to="/about">About</MuiLink>
 						</li>
 						<li className="nav-link">
-							<Link to="/skills">Skills</Link>
+							<MuiLink underline="hover" component={Link} to="/skills">Skills</MuiLink>
 						</li>
 						<li className="nav-link">
-							<Link to="/work">Works</Link>
+							<MuiLink underline="hover" component={Link} to="/work">Works</MuiLink>
 						</li>
 						<li className="nav-link">
-							<Link to="/contact">Contact</Link>
+							<MuiLink underline="hover" component={Link} to="/contact">Contact</MuiLink>
 						</li>
 						<li className="nav-link">
 							<Button variant="outlined" color="secondary">Resume</Button>
