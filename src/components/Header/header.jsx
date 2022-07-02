@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby';
 // MUI
 import Box from '@mui/material/Box';
@@ -6,13 +6,16 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import { useScrollTrigger } from '@mui/material';
 // Styled components
 import { Brand, StyledAppBar, NavLinks } from './headerStyled';
 
 
 const Header = () => {
+	const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 100 });
+
 	return (
-		<StyledAppBar position="fixed">
+		<StyledAppBar position="fixed" className={trigger ? "scrolled" : ""} elevation={trigger ? 3 : 0}>
 			<Container maxWidth="xl">
 				<Box sx={{ display: 'flex', alignItems: 'center' }}>
 					<Brand>

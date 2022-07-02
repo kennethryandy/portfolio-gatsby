@@ -1,4 +1,4 @@
-import { styled } from '@mui/material/styles';
+import { alpha, styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 
@@ -13,8 +13,14 @@ export const Brand = styled(Box)(({ theme }) => ({
 
 export const StyledAppBar = styled(AppBar)(({ theme }) => ({
 	backgroundColor: theme.palette.background.default,
-	minHeight: 100,
-	justifyContent: 'center'
+	justifyContent: 'center',
+	height: 100,
+	transition: theme.transitions.create(['height', 'box-shadow'], { duration: "250ms" }),
+	"&.scrolled": {
+		backgroundColor: alpha(theme.palette.background.default, 0.6),
+		height: 64,
+		backdropFilter: "blur(10px)"
+	}
 }));
 
 
