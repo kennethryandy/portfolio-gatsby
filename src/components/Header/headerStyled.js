@@ -5,8 +5,8 @@ import Box from '@mui/material/Box';
 export const Brand = styled(Box)(({ theme }) => ({
 	display: 'flex',
 	"& a": {
-		height: 40,
-		width: 40,
+		height: 36,
+		width: 36,
 		display: 'inline-block'
 	}
 }));

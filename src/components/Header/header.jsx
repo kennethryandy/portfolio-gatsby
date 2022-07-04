@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'gatsby';
 // MUI
 import Box from '@mui/material/Box';
@@ -36,7 +36,7 @@ const Header = () => {
 							<MuiLink underline="hover" component={Link} to="/skills">Skills</MuiLink>
 						</li>
 						<li className="nav-link">
-							<MuiLink underline="hover" component={Link} to="/work">Works</MuiLink>
+							<MuiLink underline="hover" component={Link} to="/work">Work</MuiLink>
 						</li>
 						<li className="nav-link">
 							<MuiLink underline="hover" component={Link} to="/contact">Contact</MuiLink>

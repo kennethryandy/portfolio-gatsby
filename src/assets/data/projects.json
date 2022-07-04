@@ -1,0 +1,61 @@
+[
+	{
+		"title": "Social Clone",
+		"imgName": "../images/socialclone.png",
+		"desc": "A social social media app that let users post, like and comment. It has a RESTFUL API that is hosted in a separate server.",
+		"url": "https://socialclonev2.netlify.app",
+		"srcCodeUrl": "https://github.com/kennethryandy/social-clone-v2",
+		"type": "featured",
+		"techs": [
+			"React",
+			"MUI",
+			"Redux",
+			"NodeJS",
+			"Express",
+			"Graphql",
+			"MongoDB"
+		]
+	},
+	{
+		"title": "zMovies",
+		"imgName": "../images/zmovies.png",
+		"desc": "Browse your favorite movies and watch trailers it is a single page application that was built in React and React Router for easy and fast routing.. The goal of this project is to use dynamic components for efficiency and better performance.",
+		"url": "https://zmovies.netlify.app",
+		"srcCodeUrl": "https://github.com/kennethryandy/movie-app",
+		"type": "featured",
+		"techs": [
+			"React",
+			"MUI",
+			"The Movie Database API"
+		]
+	},
+	{
+		"title": "Covid-19 Tracker",
+		"imgName": "../images/covid19.png",
+		"desc": "An app that tracks coronavirus cases, recoveries and deaths world wide. It lets the user check covid19 cases in any country, it also has a map and graph on it.",
+		"url": "https://covid19-status-track.netlify.app",
+		"srcCodeUrl": "https://github.com/kennethryandy/Covid-19-Tracker",
+		"type": "featured",
+		"techs": [
+			"React",
+			"MUI",
+			"Leaflet",
+			"ChartJs",
+			"Covid19 API",
+			"Disease API"
+		]
+	},
+	{
+		"title": "Quiz Game",
+		"imgName": "../images/quizgame.png",
+		"desc": "A trivia game that lets the user select a category and difficulties that is pulled through the open trivia API. It then randomly selects ten random questions depending on the category that user's choose and tracks the correct answers.",
+		"url": "https://quiz-game-v2.netlify.app/",
+		"srcCodeUrl": "https://github.com/kennethryandy/quizgame-v2",
+		"type": "featured",
+		"techs": [
+			"React",
+			"MUI",
+			"Open Trivia API"
+		]
+	}
+]

@@ -19,6 +19,11 @@ const Hero = () => {
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">t</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">h</span>
 				&nbsp;
+				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">R</span>
+				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">y</span>
+				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">a</span>
+				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">n</span>
+				&nbsp;
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">D</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">y</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">.</span>

@@ -45,7 +45,10 @@ const CloudWrapper = styled('div')(({ theme }) => ({
 	},
 	[theme.breakpoints.down('md')]: {
 		paddingTop: theme.spacing(5),
-		position: 'initial'
+		position: 'initial',
+		"& canvas": {
+			minWidth: '100%',
+		}
 	}
 }));
 
@@ -61,6 +64,7 @@ const slugs = [
 	'materialui',
 	'gatsby',
 	'vue',
+	'laravel',
 	'wordpress',
 	'docker',
 	'git',

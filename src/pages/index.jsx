@@ -5,6 +5,7 @@ import { styled } from '@mui/material/styles';
 import Layout from '../components/layout';
 import Hero from "../components/Hero/hero";
 import About from "../components/About/about";
+import Work from "../components/Work/work";
 
 const Section = styled('section')`
 	min-height: 100vh;
@@ -21,8 +22,11 @@ const IndexPage = () => (
 		}}>
 			<Hero />
 		</Section>
-		<Section>
+		<Section sx={{ marginBottom: 10 }}>
 			<About />
+		</Section>
+		<Section>
+			<Work />
 		</Section>
 	</Layout>
 )

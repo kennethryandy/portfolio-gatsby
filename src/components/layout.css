@@ -38,6 +38,10 @@
   content: "\e903";
 }
 
+.icon-external-link:before {
+  content: "\e904";
+}
+
 ::selection {
 	background-color: #233554;
 	color: #ccd6f6;

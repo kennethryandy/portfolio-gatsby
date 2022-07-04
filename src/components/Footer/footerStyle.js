@@ -1,7 +1,6 @@
 import { styled } from "@mui/material/styles";
 
 export const FooterIcons = styled('div')`
-	display: block;
 	max-width: 270px;
 	width: 100%;
 	margin: 0 auto;

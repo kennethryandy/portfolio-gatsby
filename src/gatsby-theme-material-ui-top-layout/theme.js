@@ -9,7 +9,7 @@ import calibreBoldWoff2 from "../assets/fonts/calibre/Calibre-Bold.woff2";
 
 const theme = createTheme({
 	palette: {
-		background: { default: "#0A1929" },
+		background: { default: "#0A1929", dark: "#07111c" },
 		mode: "light",
 		secondary: {
 			main: '#64FFDA'
@@ -38,13 +38,21 @@ const theme = createTheme({
 		].join(','),
 		h1: {
 			fontSize: "5rem",
-			fontWeight: 500
+			fontWeight: 500,
+			"& span": {
+				display: 'inline-block'
+			}
 		},
 		body1: {
 			fontSize: "1.25rem",
 			lineHeight: 1.3
 		},
 		navLink: {
+			fontFamily: ['Fira Code', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto',].join(','),
+			fontSize: 14,
+			fontWeight: 400
+		},
+		caption: {
 			fontFamily: ['Fira Code', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto',].join(','),
 			fontSize: 14,
 			fontWeight: 400
