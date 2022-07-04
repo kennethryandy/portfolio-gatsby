@@ -88,7 +88,10 @@ export const CardItemTech = styled('ul')(({ theme }) => ({
 	zIndex: 2,
 	flexWrap: 'wrap',
 	[theme.breakpoints.down('md')]: {
-		justifyContent: 'center !important'
+		justifyContent: 'center !important',
+		"&>li>span": {
+			fontSize: '12px',
+		}
 	}
 }));
 

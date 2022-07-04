@@ -38,6 +38,12 @@ export const NavLinks = styled('ul')(({ theme }) => ({
 			transition: `color 250ms ${theme.transitions.easing.easeInOut}`,
 			"&:hover": {
 				color: theme.palette.secondary.main
+			},
+			"&.active": {
+				color: theme.palette.secondary.main,
+				"&::after": {
+					width: '100%'
+				}
 			}
 		},
 		"& .MuiButton-root": {

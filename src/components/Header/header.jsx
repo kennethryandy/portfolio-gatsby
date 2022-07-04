@@ -30,16 +30,16 @@ const Header = () => {
 					<Box sx={{ flexGrow: 1 }} />
 					<NavLinks>
 						<li className="nav-link">
-							<MuiLink underline="hover" component={Link} to="/about">About</MuiLink>
+							<MuiLink underline="hover" component={Link} activeClassName="active" to="/about">About</MuiLink>
 						</li>
 						<li className="nav-link">
-							<MuiLink underline="hover" component={Link} to="/skills">Skills</MuiLink>
+							<MuiLink underline="hover" component={Link} activeClassName="active" to="/skills">Skills</MuiLink>
 						</li>
 						<li className="nav-link">
-							<MuiLink underline="hover" component={Link} to="/work">Work</MuiLink>
+							<MuiLink underline="hover" component={Link} activeClassName="active" to="/work">Work</MuiLink>
 						</li>
 						<li className="nav-link">
-							<MuiLink underline="hover" component={Link} to="/contact">Contact</MuiLink>
+							<MuiLink underline="hover" component={Link} activeClassName="active" to="/contact">Contact</MuiLink>
 						</li>
 						<li className="nav-link">
 							<Button variant="outlined" color="secondary">Resume</Button>
