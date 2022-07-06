@@ -10,12 +10,24 @@ const Section = styled('section')`
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
+	margin-bottom: 80px;
 `;
+
+const AppbarSpacer = styled('div')(({ theme }) => ({
+	display: 'none',
+	[theme.breakpoints.down('md')]: {
+		display: 'block',
+		marginTop: 36,
+		minHeight: theme.mixins.toolbar.minHeight + 36,
+	}
+}))
+
 
 const AboutPage = () => {
 	return (
 		<Layout>
 			<Seo title="Home" />
+			<AppbarSpacer />
 			<Section>
 				<About />
 			</Section>
