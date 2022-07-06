@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import Hero from "../components/Hero/hero";
 import About from "../components/About/about";
 import Work from "../components/Work/work";
+import HomeContact from "../components/Contact/home-contact";
 
 const Section = styled('section')`
 	min-height: 100vh;
@@ -25,8 +26,16 @@ const IndexPage = () => (
 		<Section sx={{ marginBottom: 10 }}>
 			<About />
 		</Section>
-		<Section>
+		<Section sx={{ marginBottom: 10 }}>
 			<Work />
+		</Section>
+		<Section sx={{
+			display: 'flex',
+			flexDirection: 'column',
+			alignItems: 'flex-start',
+			justifyContent: 'center'
+		}}>
+			<HomeContact />
 		</Section>
 	</Layout>
 )
