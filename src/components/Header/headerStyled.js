@@ -20,6 +20,11 @@ export const StyledAppBar = styled(AppBar)(({ theme }) => ({
 		backgroundColor: alpha(theme.palette.background.default, 0.6),
 		height: 64,
 		backdropFilter: "blur(10px)"
+	},
+	"&.menu-open": {
+		backgroundColor: 'transparent',
+		boxShadow: 'none',
+		backdropFilter: "blur(4px)"
 	}
 }));
 

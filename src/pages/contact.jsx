@@ -47,7 +47,8 @@ const Contact = () => {
 							<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">e</span>
 							<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">!</span>
 						</Typography>
-						<Typography gutterBottom>Want to say "Hey!"? Got something you'd like to ask? New project or opportunity? Want to hire me? Ping me!</Typography>
+						<Typography gutterBottom>Want to say "Hey!"? Got something you'd like to ask? New project or opportunity?</Typography>
+						<Typography gutterBottom>Get your space suit ready and tell me your ideas to develop your dream application.</Typography>
 						<Typography gutterBottom>Alternatively, shoot me an email at <MuiLink href="mailto:dykennethryan@gmail.com" target="_blank" rel="noopener noreferrer" color="secondary" underline="hover">dykennethryan@gmail.com</MuiLink></Typography>
 					</Grid>
 					<Grid item md={6}>
