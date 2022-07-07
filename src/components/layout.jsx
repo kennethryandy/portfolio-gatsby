@@ -23,13 +23,13 @@ const StyledContainer = styled(Container)(({ theme }) => ({
 	},
 }));
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children }) => {
 	const [pageLoad, setPageLoad] = useState(true);
 
 	return (
 		<>
 			{pageLoad ? (
-				<OnPageLoad setPageLoad={setPageLoad} location={location} />
+				<OnPageLoad setPageLoad={setPageLoad} />
 			) : (
 				<>
 					<Header />

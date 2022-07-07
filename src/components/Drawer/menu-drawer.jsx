@@ -3,6 +3,7 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import PropTypes from "prop-types";
 import { Link } from 'gatsby';
 import MuiLink from '@mui/material/Link';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 
@@ -43,11 +44,13 @@ export const NavLinks = styled('ul')(({ theme }) => ({
 	width: '100%',
 	"& .nav-link": {
 		marginBottom: theme.spacing(2),
+		overflowY: 'hidden',
 		"& a": {
 			...theme.typography.navLink,
 			color: theme.palette.text.primary,
 			textDecoration: 'none',
 			transition: `color 250ms ${theme.transitions.easing.easeInOut}`,
+			display: 'inline-block',
 			"&:hover": {
 				color: theme.palette.secondary.main
 			},
@@ -69,6 +72,7 @@ export const NavLinks = styled('ul')(({ theme }) => ({
 
 
 const MenuDrawer = (props) => {
+
 	return (
 		<>
 			<SwipeableDrawerStyled {...props} disableBackdropTransition>
@@ -88,13 +92,15 @@ const MenuDrawer = (props) => {
 								<MuiLink underline="hover" component={Link} activeClassName="active" to="/contact">Contact</MuiLink>
 							</li>
 						</NavLinks>
-						<Button variant="outlined" color="secondary">Resume</Button>
+						<Box sx={{ overflowY: 'hidden' }}>
+							<Button variant="outlined" color="secondary">Resume</Button>
+						</Box>
 					</StyledNav>
 				</MenuAside>
 			</SwipeableDrawerStyled>
 		</>
 	)
-}
+};
 
 MenuDrawer.defaultProps = {
 	open: false,

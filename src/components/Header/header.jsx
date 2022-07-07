@@ -22,8 +22,13 @@ const Header = () => {
 	const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 100 });
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+	// Hamburger
 	const hamburgerRef = useRef(null);
 	const menuTl = useRef();
+	// Main header
+	const headerTl = useRef();
+	const headerRef = useRef(null);
+	const hEl = gsap.utils.selector(headerRef);
 
 	useLayoutEffect(() => {
 		menuTl.current = gsap.timeline({ paused: true });
@@ -37,12 +42,23 @@ const Header = () => {
 				.add('rotateLine')
 				.to(hamburgerChildren[0], 0.350, { rotate: -225, ease: Power3.easeInOut }, 'rotateLine')
 				.to(hamburgerChildren[2], 0.350, { rotate: 225, ease: Power3.easeInOut }, 'rotateLine')
+		} else {
+			headerTl.current = gsap.timeline().add('start').from(
+				hEl(".nav-link"),
+				{ y: -30, x: 4, opacity: 0, stagger: 0.1 },
+				'start'
+			).from(
+				hEl(".logo-icon"),
+				{ opacity: 0, x: -4 },
+				'start'
+			)
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isMobile]);
 
 	function handleOpenMenu () {
 		menuTl.current.play();
-		setOpenMenu(true)
+		setOpenMenu(true);
 	}
 
 	function handleCloseMenu () {
@@ -52,10 +68,10 @@ const Header = () => {
 
 	return (
 		<>
-			<StyledAppBar position="fixed" className={trigger ? openMenu ? "menu-open" : "scrolled" : openMenu ? "menu-open" : ""} elevation={trigger ? 3 : 0} >
+			<StyledAppBar ref={headerRef} position="fixed" className={trigger ? openMenu ? "menu-open" : "scrolled" : openMenu ? "menu-open" : ""} elevation={trigger ? 3 : 0} >
 				<Container maxWidth="xl">
 					<Box sx={{ display: 'flex', alignItems: 'center' }}>
-						<Brand>
+						<Brand className="logo-icon">
 							<Typography component={Link} to="/">
 								<Logo />
 							</Typography>
@@ -66,7 +82,7 @@ const Header = () => {
 								<Hamburger ref={hamburgerRef} />
 							</IconButton>
 						) : (
-							<NavLinks>
+							<NavLinks className="nav-links">
 								<li className="nav-link">
 									<MuiLink underline="hover" component={Link} activeClassName="active" to="/about">About</MuiLink>
 								</li>
