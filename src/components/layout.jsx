@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react";
 import Container from '@mui/material/Container';
 import { styled } from '@mui/material/styles';
 import "./layout.css";
@@ -6,6 +6,7 @@ import "./layout.css";
 import Header from "./Header/header"
 import Footer from "./Footer/footer";
 import FloatingNav from "./Footer/FloatingNav/floatingNav";
+import OnPageLoad from "./Loading/on-page-load";
 
 const StyledContainer = styled(Container)(({ theme }) => ({
 	[theme.breakpoints.down('lg')]: {
@@ -22,16 +23,23 @@ const StyledContainer = styled(Container)(({ theme }) => ({
 	},
 }));
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
+	const [pageLoad, setPageLoad] = useState(true);
 
 	return (
 		<>
-			<Header />
-			<FloatingNav />
-			<StyledContainer maxWidth="lg" component="main">
-				{children}
-			</StyledContainer>
-			<Footer />
+			{pageLoad ? (
+				<OnPageLoad setPageLoad={setPageLoad} location={location} />
+			) : (
+				<>
+					<Header />
+					<FloatingNav />
+					<StyledContainer maxWidth="lg" component="main">
+						{children}
+					</StyledContainer>
+					<Footer />
+				</>
+			)}
 		</>
 	)
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState, useLayoutEffect } from 'react'
 import { Link } from 'gatsby';
 import { gsap, Power3 } from 'gsap';
 // MUI
@@ -25,20 +25,20 @@ const Header = () => {
 	const hamburgerRef = useRef(null);
 	const menuTl = useRef();
 
-	console.log(theme);
-
-	useEffect(() => {
+	useLayoutEffect(() => {
 		menuTl.current = gsap.timeline({ paused: true });
-		const hamburgerChildren = hamburgerRef.current?.children;
-		menuTl.current
-			.add('start')
-			.to(hamburgerChildren[0], 0.200, { y: 30, transformOrigin: '50%, 50%' }, 'start')
-			.to(hamburgerChildren[2], 0.200, { y: -30, transformOrigin: '50%, 50%' }, 'start')
-			.to(hamburgerChildren[1], 0.200, { display: 'none' })
-			.add('rotateLine')
-			.to(hamburgerChildren[0], 0.350, { rotate: -225, ease: Power3.easeInOut }, 'rotateLine')
-			.to(hamburgerChildren[2], 0.350, { rotate: 225, ease: Power3.easeInOut }, 'rotateLine')
-	}, []);
+		if (isMobile && hamburgerRef.current) {
+			const hamburgerChildren = hamburgerRef.current?.children;
+			menuTl.current
+				.add('start')
+				.to(hamburgerChildren[0], 0.200, { y: 30, transformOrigin: '50%, 50%' }, 'start')
+				.to(hamburgerChildren[2], 0.200, { y: -30, transformOrigin: '50%, 50%' }, 'start')
+				.to(hamburgerChildren[1], 0.200, { display: 'none' })
+				.add('rotateLine')
+				.to(hamburgerChildren[0], 0.350, { rotate: -225, ease: Power3.easeInOut }, 'rotateLine')
+				.to(hamburgerChildren[2], 0.350, { rotate: 225, ease: Power3.easeInOut }, 'rotateLine')
+		}
+	}, [isMobile]);
 
 	function handleOpenMenu () {
 		menuTl.current.play();

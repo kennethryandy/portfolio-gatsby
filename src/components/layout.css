@@ -75,3 +75,7 @@
   display: inline-block;
   animation: rubberBand 1s alternate ease-out;
 }
+
+.page-preload {
+	overflow: hidden;
+}

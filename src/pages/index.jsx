@@ -12,32 +12,34 @@ const Section = styled('section')`
 	min-height: 100vh;
 `;
 
-const IndexPage = () => (
-	<Layout>
-		<Seo title="Home" />
-		<Section sx={{
-			display: 'flex',
-			flexDirection: 'column',
-			alignItems: 'flex-start',
-			justifyContent: 'center'
-		}}>
-			<Hero />
-		</Section>
-		<Section sx={{ marginBottom: 10 }}>
-			<About />
-		</Section>
-		<Section sx={{ marginBottom: 10 }}>
-			<Work />
-		</Section>
-		<Section sx={{
-			display: 'flex',
-			flexDirection: 'column',
-			alignItems: 'flex-start',
-			justifyContent: 'center'
-		}}>
-			<HomeContact />
-		</Section>
-	</Layout>
-)
+const IndexPage = () => {
+	return (
+		<Layout>
+			<Seo title="Home" />
+			<Section sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				alignItems: 'flex-start',
+				justifyContent: 'center'
+			}}>
+				<Hero />
+			</Section>
+			<Section sx={{ marginBottom: 10 }}>
+				<About />
+			</Section>
+			<Section sx={{ marginBottom: 10 }}>
+				<Work />
+			</Section>
+			<Section sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				alignItems: 'flex-start',
+				justifyContent: 'center'
+			}}>
+				<HomeContact />
+			</Section>
+		</Layout>
+	)
+}
 
 export default IndexPage
