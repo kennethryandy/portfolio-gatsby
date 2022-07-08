@@ -15,17 +15,15 @@ const PageLoadContainer = styled(Box)(({ theme }) => ({
 
 const OnPageLoad = ({ setPageLoad }) => {
 	const logoRef = useRef(null);
-	const pageLoadRef = useRef(true);
 
 	useLayoutEffect(() => {
 		if (!logoRef.current) return;
 		const logoRefChild = logoRef.current.children;
 		gsap.timeline({ defaults: { ease: Back.easeIn.config(1) } })
-			.fromTo(logoRefChild[0], { strokeDasharray: 40, strokeDashoffset: 120 }, { strokeDashoffset: 0, strokeDasharray: 140, duration: 1.6 })
+			.fromTo(logoRefChild[0], { strokeDasharray: 40, strokeDashoffset: 120 }, { strokeDashoffset: 0, strokeDasharray: 140, duration: 1.2 })
 			.from([logoRefChild[1], logoRefChild[2]], { fill: "transparent", stagger: .04 })
 			.to(logoRef.current, { scale: 0, opacity: 0 })
 			.eventCallback("onComplete", function () {
-				pageLoadRef.current = false;
 				setPageLoad(false);
 			});
 	});

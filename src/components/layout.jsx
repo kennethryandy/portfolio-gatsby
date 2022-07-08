@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import Container from '@mui/material/Container';
 import { styled } from '@mui/material/styles';
 import "./layout.css";
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Components
 import Header from "./Header/header"
 import Footer from "./Footer/footer";
 import FloatingNav from "./Footer/FloatingNav/floatingNav";
 import OnPageLoad from "./Loading/on-page-load";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const StyledContainer = styled(Container)(({ theme }) => ({
 	[theme.breakpoints.down('lg')]: {

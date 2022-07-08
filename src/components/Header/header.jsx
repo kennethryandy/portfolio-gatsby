@@ -8,8 +8,8 @@ import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import { useScrollTrigger, useTheme } from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { useScrollTrigger } from '@mui/material';
+import useMedia from '../../hooks/useMedia';
 // Styled components
 import { Brand, StyledAppBar, NavLinks } from './headerStyled';
 import Logo from '../Icons/logo';
@@ -20,8 +20,7 @@ import MenuDrawer from '../Drawer/menu-drawer';
 const Header = () => {
 	const [openMenu, setOpenMenu] = useState(false);
 	const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 100 });
-	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+	const isMobile = useMedia()
 	// Hamburger
 	const hamburgerRef = useRef(null);
 	const menuTl = useRef();
@@ -49,7 +48,7 @@ const Header = () => {
 				'start'
 			).from(
 				hEl(".logo-icon"),
-				{ opacity: 0, x: -4 },
+				{ opacity: 0, x: -4, y: -30 },
 				'start'
 			)
 		}

@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
+import gsap from 'gsap';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { IntroductionText, HeroButton, HeaderText } from './heroStyles';
 import useToggleRubberBand from '../../hooks/useToggleRubberBand';
+import useArrayRefs from '../../hooks/useArrayRefs';
 
 const Hero = () => {
 	const toggleRubberBand = useToggleRubberBand();
+	const [refs, setRefs] = useArrayRefs()
+
+	useLayoutEffect(() => {
+		gsap.timeline().from(
+			refs.current,
+			{
+				y: 16,
+				opacity: 0,
+				stagger: 0.2,
+				onStart: () => {
+					refs.current[1].classList.add('animate');
+				},
+				onComplete: () => {
+					refs.current[1].classList.remove('animate');
+				}
+			}
+		)
+	}, [refs])
 
 	return (
 		<>
-			<IntroductionText component="h1" variant="caption">Hi, my name is</IntroductionText>
-			<HeaderText variant="h1" component="h2">
+			<IntroductionText component="h1" variant="caption" ref={setRefs}>Hi, my name is</IntroductionText>
+			<HeaderText variant="h1" component="h2" ref={setRefs}>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">K</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">e</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">n</span>
@@ -55,10 +75,10 @@ const Hero = () => {
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">e</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">b</span>
 			</HeaderText>
-			<Typography sx={{ maxWidth: 540 }}>
+			<Typography sx={{ maxWidth: 540 }} ref={setRefs}>
 				{"I’m a software engineer specializing in building exceptional digital experiences."}
 			</Typography>
-			<Box>
+			<Box ref={setRefs}>
 				<HeroButton variant="outlined" color="secondary">View Resume</HeroButton>
 				<HeroButton variant="outlined" color="secondary">Contact Me!</HeroButton>
 			</Box>

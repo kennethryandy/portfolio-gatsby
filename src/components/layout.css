@@ -76,6 +76,10 @@
   animation: rubberBand 1s alternate ease-out;
 }
 
+.animate>span {
+  animation: rubberBand 1s alternate ease-out;
+}
+
 .page-preload {
 	overflow: hidden;
 }

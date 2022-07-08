@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useLayoutEffect, useRef, useMemo } from 'react'
 import { Link } from 'gatsby';
 import { Cloud } from 'react-icon-cloud';
+import { gsap } from 'gsap';
 import useToggleRubberBand from '../../hooks/useToggleRubberBand';
 // MUI
 import { styled } from '@mui/material/styles';
@@ -8,6 +9,8 @@ import MuiLink from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import useIcons from '../../hooks/useIcons';
+import useMedia from '../../hooks/useMedia';
+
 
 const InfoWrapper = styled('div')`
 	& p {
@@ -27,6 +30,10 @@ const InfoTech = styled('ul')(({ theme }) => ({
 		position: 'relative',
 		marginBottom: theme.spacing(1),
 		paddingLeft: theme.spacing(1),
+		"&>span": {
+			overflowY: 'hidden',
+			display: 'inline-block'
+		},
 		"&::marker": {
 			content: '"▹"',
 			color: theme.palette.secondary.main
@@ -91,10 +98,33 @@ const slugs = [
 const About = () => {
 	const icons = useIcons(slugs);
 	const toggleRubberBand = useToggleRubberBand();
+	const mobile = useMedia();
+	const cloudRef = useRef(null);
+	const headerRef = useRef(null);
+	const infoTextRef = useRef(null);
+	const q = useMemo(() => gsap.utils.selector(infoTextRef), [infoTextRef]);
+
+
+	useLayoutEffect(() => {
+		gsap.timeline({ scrollTrigger: { trigger: headerRef.current, start: `-=${mobile ? 50 : 100} 80%` } })
+			.from([headerRef.current, cloudRef.current, q('.info-wrapper>p'), q('.info-tech>li')],
+				{
+					y: 14,
+					opacity: 0,
+					stagger: 0.2,
+					onStart: () => {
+						headerRef.current.classList.add('animate');
+					},
+					onComplete: () => {
+						headerRef.current.classList.remove('animate');
+					}
+				});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [mobile]);
 
 	return (
 		<>
-			<Typography variant="h1" component="h2" color="secondary" gutterBottom sx={{ cursor: 'default' }}>
+			<Typography ref={headerRef} variant="h1" component="h2" color="secondary" gutterBottom sx={{ cursor: 'default' }}>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">M</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">e</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">,</span>
@@ -114,21 +144,23 @@ const About = () => {
 			</Typography>
 			<Grid container spacing={2}>
 				<Grid item md={6}>
-					<InfoWrapper>
-						<Typography variant="body1" gutterBottom>Hi, I'm Kenneth a web developer from the Philippines with more than 1 year experience in the field. My interest in web development started way back 2015 when I decided to make a blog about a game using HTML and CSS — turns out making website is my passion.</Typography>
-						<Typography variant="body1" gutterBottom>For over a decade I've been harnessing my skills in a vast spectrum of <MuiLink color="secondary" underline="hover" component={Link} to="/skills">web technologies</MuiLink> that let me gather a significant amount of various experience. Working for companies and individuals around the globe I met and learnt from amazing and ambitious people.</Typography>
-						<Typography variant="body1" gutterBottom>Here are a few technologies I've been working with recently:</Typography>
-					</InfoWrapper>
-					<InfoTech>
-						<li>React<span style={{ margin: "0px 3px" }}>/</span>Gatsby</li>
-						<li>WordPress</li>
-						<li>Javascript (ES6+)</li>
-						<li>MongoDB</li>
-						<li>NodeJS</li>
-						<li>TypeScript</li>
-					</InfoTech>
+					<div ref={infoTextRef}>
+						<InfoWrapper className="info-wrapper">
+							<Typography variant="body1" gutterBottom>Hi, I'm Kenneth a web developer from the Philippines with more than 1 year experience in the field. My interest in web development started way back 2015 when I decided to make a blog about a game using HTML and CSS — turns out making website is my passion.</Typography>
+							<Typography variant="body1" gutterBottom>For over a decade I've been harnessing my skills in a vast spectrum of <MuiLink color="secondary" underline="hover" component={Link} to="/skills">web technologies</MuiLink> that let me gather a significant amount of various experience. Working for companies and individuals around the globe I met and learnt from amazing and ambitious people.</Typography>
+							<Typography variant="body1" gutterBottom>Here are a few technologies I've been working with recently:</Typography>
+						</InfoWrapper>
+						<InfoTech className="info-tech">
+							<li><span>React<span style={{ margin: "0px 3px" }}>/</span>Gatsby</span></li>
+							<li><span>WordPress</span></li>
+							<li><span>Javascript (ES6+)</span></li>
+							<li><span>MongoDB</span></li>
+							<li><span>NodeJS</span></li>
+							<li><span>TypeScript</span></li>
+						</InfoTech>
+					</div>
 				</Grid>
-				<Grid item md={6} position="relative">
+				<Grid item md={6} position="relative" ref={cloudRef}>
 					{icons &&
 						<CloudWrapper>
 							<Cloud
