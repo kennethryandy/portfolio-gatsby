@@ -1,4 +1,4 @@
-import React, { useRef, useState, useLayoutEffect } from 'react'
+import React, { useRef, useState, useLayoutEffect, useMemo } from 'react'
 import { Link } from 'gatsby';
 import { gsap, Power3 } from 'gsap';
 // MUI
@@ -27,7 +27,7 @@ const Header = () => {
 	// Main header
 	const headerTl = useRef();
 	const headerRef = useRef(null);
-	const hEl = gsap.utils.selector(headerRef);
+	const hEl = useMemo(() => gsap.utils.selector(headerRef), [headerRef]);
 
 	useLayoutEffect(() => {
 		menuTl.current = gsap.timeline({ paused: true });
@@ -44,11 +44,11 @@ const Header = () => {
 		} else {
 			headerTl.current = gsap.timeline().add('start').from(
 				hEl(".nav-link"),
-				{ y: -30, x: 4, opacity: 0, stagger: 0.1 },
+				{ y: -30, x: 4, opacity: 0, stagger: 0.1, duration: .8 },
 				'start'
 			).from(
 				hEl(".logo-icon"),
-				{ opacity: 0, x: -4, y: -30 },
+				{ opacity: 0, x: -4, y: -30, duration: .8 },
 				'start'
 			)
 		}

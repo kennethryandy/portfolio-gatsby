@@ -5,15 +5,19 @@ export const CardItem = styled(Box)(({ theme }) => ({
 	display: 'grid',
 	gridTemplateColumns: 'repeat(12, 1fr)',
 	gap: theme.spacing(2),
-	marginBottom: theme.spacing(10)
+	marginBottom: theme.spacing(20),
+	[theme.breakpoints.down('md')]: {
+		marginBottom: theme.spacing(10),
+	}
 }));
 
 export const CardItemImage = styled(Box)(({ theme }) => ({
 	gridArea: '1 / 6 / -1 / -1',
 	"& .card-image-container": {
 		position: 'relative',
-		"&>img": {
-			boxShadow: theme.shadows[1]
+		"&>img, &>picture>img": {
+			boxShadow: theme.shadows[1],
+			transition: theme.transitions.create()
 		},
 		"&::after": {
 			content: '""',
@@ -27,6 +31,9 @@ export const CardItemImage = styled(Box)(({ theme }) => ({
 			mixBlendMode: 'hard-light'
 		},
 		"&:hover": {
+			"&>img, &>picture>img": {
+				transform: 'scale(1.02)'
+			},
 			"&::after": {
 				backgroundColor: 'transparent',
 				mixBlendMode: 'normal'

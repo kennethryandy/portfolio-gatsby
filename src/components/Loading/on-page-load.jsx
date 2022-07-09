@@ -13,7 +13,7 @@ const PageLoadContainer = styled(Box)(({ theme }) => ({
 	backgroundColor: darken(theme.palette.background.default, .2)
 }));
 
-const OnPageLoad = ({ setPageLoad }) => {
+const OnPageLoad = ({ setPageLoad, setLoading }) => {
 	const logoRef = useRef(null);
 
 	useLayoutEffect(() => {
@@ -25,8 +25,11 @@ const OnPageLoad = ({ setPageLoad }) => {
 			.to(logoRef.current, { scale: 0, opacity: 0 })
 			.eventCallback("onComplete", function () {
 				setPageLoad(false);
+				if (setLoading) {
+					setLoading(false)
+				}
 			});
-	});
+	}, [setPageLoad]);
 
 	return (
 		<>
@@ -35,8 +38,8 @@ const OnPageLoad = ({ setPageLoad }) => {
 				<Logo
 					ref={logoRef}
 					parentProps={{
-						width: "60",
-						height: "60"
+						width: "80",
+						height: "80"
 					}}
 				/>
 			</PageLoadContainer>

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
+import { gsap, Power2 } from 'gsap';
 import useToggleRubberBand from '../../hooks/useToggleRubberBand';
+import useMedia from '../../hooks/useMedia';
 import { useStaticQuery, graphql } from 'gatsby';
 // MUI
 import Typography from '@mui/material/Typography';
@@ -31,11 +33,28 @@ const query = graphql`
 
 const Work = () => {
 	const toggleRubberBand = useToggleRubberBand();
+	const headerRef = useRef(null)
+	const mobile = useMedia();
 	const { allProjectsJson: { nodes: projects } } = useStaticQuery(query);
+
+	useLayoutEffect(() => {
+		if (headerRef.current) {
+			gsap.timeline({ ease: Power2.easeInOut, scrollTrigger: { trigger: headerRef.current, start: `${mobile ? "top" : "-=80"} 80%` } }).from(headerRef.current, {
+				y: 16,
+				opacity: 0,
+				onStart: () => {
+					headerRef.current?.classList.add('animate');
+				},
+				onComplete: () => {
+					headerRef.current?.classList.remove('animate');
+				}
+			})
+		}
+	}, [mobile]);
 
 	return (
 		<>
-			<Typography variant="h1" component="h2" color="secondary" sx={{ cursor: 'default', marginBottom: 5 }}>
+			<Typography ref={headerRef} variant="h1" component="h2" color="secondary" sx={{ cursor: 'default', marginBottom: 5 }}>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">S</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">o</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">m</span>

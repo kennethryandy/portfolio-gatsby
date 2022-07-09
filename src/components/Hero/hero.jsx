@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-import gsap from 'gsap';
+import { gsap, Power2 } from 'gsap';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { IntroductionText, HeroButton, HeaderText } from './heroStyles';
@@ -11,20 +11,23 @@ const Hero = () => {
 	const [refs, setRefs] = useArrayRefs()
 
 	useLayoutEffect(() => {
-		gsap.timeline().from(
-			refs.current,
-			{
-				y: 16,
-				opacity: 0,
-				stagger: 0.2,
-				onStart: () => {
-					refs.current[1].classList.add('animate');
-				},
-				onComplete: () => {
-					refs.current[1].classList.remove('animate');
+		if (refs.current.length > 0) {
+			gsap.timeline({ ease: Power2.easeInOut, }).from(
+				refs.current,
+				{
+					y: 16,
+					opacity: 0,
+					stagger: 0.1,
+					delay: .8,
+					onStart: () => {
+						refs.current[1]?.classList.add('animate');
+					},
+					onComplete: () => {
+						refs.current[1]?.classList.remove('animate');
+					}
 				}
-			}
-		)
+			)
+		}
 	}, [refs])
 
 	return (

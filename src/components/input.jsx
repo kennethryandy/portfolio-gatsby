@@ -1,11 +1,11 @@
-import React, { memo } from 'react';
+import React, { memo, forwardRef } from 'react';
 import TextField from '@mui/material/TextField';
 
-const Input = (props) => {
+const Input = (props, ref) => {
 
 	return (
-		<TextField {...props} />
+		<TextField {...props} ref={ref} />
 	)
 }
 
-export default memo(Input);
+export default memo(forwardRef(Input));

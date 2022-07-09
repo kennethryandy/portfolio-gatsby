@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
+import { gsap, Power2 } from 'gsap';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Form from '../components/Contact/Form/form';
@@ -28,15 +29,42 @@ const AppbarSpacer = styled('div')(({ theme }) => ({
 
 
 const Contact = () => {
+	const [loading, setLoading] = useState(true);
+	const [tl, setTl] = useState(null);
+	const containerRef = useRef(null);
+	const contentRef = useRef(null);
 	const toggleRubberBand = useToggleRubberBand();
 
+	useLayoutEffect(() => {
+		if (loading) return;
+		if (contentRef.current) {
+			const timeline = gsap.timeline({
+				defaults: { ease: Power2.easeInOut }
+			}).add('start-contact')
+			setTl(timeline);
+			timeline.from(contentRef.current.children,
+				{
+					y: 16,
+					opacity: 0,
+					stagger: 0.1,
+					delay: .6,
+					onStart: () => {
+						contentRef.current.children[0].classList.add('animate')
+					},
+					onComplete: () => {
+						contentRef.current.children[0].classList.remove('animate')
+					}
+				}, 'start-contact');
+		}
+	}, [loading]);
+
 	return (
-		<Layout>
+		<Layout loading={loading} setLoading={setLoading}>
 			<Seo title="Home" />
 			<AppbarSpacer />
 			<Section>
-				<Grid container spacing={4}>
-					<Grid item md={6}>
+				<Grid container spacing={4} ref={containerRef}>
+					<Grid item md={6} ref={contentRef}>
 						<Typography variant="h1" gutterBottom color="secondary" sx={{ cursor: 'default' }}>
 							<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">P</span>
 							<span onMouseEnter={toggleRubberBand} aria-hidden="true" className="white-text">i</span>
@@ -52,7 +80,7 @@ const Contact = () => {
 						<Typography gutterBottom>Alternatively, shoot me an email at <MuiLink href="mailto:dykennethryan@gmail.com" target="_blank" rel="noopener noreferrer" color="secondary" underline="hover">dykennethryan@gmail.com</MuiLink></Typography>
 					</Grid>
 					<Grid item md={6}>
-						<Form />
+						<Form tl={tl} delay={.6} />
 					</Grid>
 				</Grid>
 			</Section>

@@ -106,19 +106,22 @@ const About = () => {
 
 
 	useLayoutEffect(() => {
-		gsap.timeline({ scrollTrigger: { trigger: headerRef.current, start: `-=${mobile ? 50 : 100} 80%` } })
-			.from([headerRef.current, cloudRef.current, q('.info-wrapper>p'), q('.info-tech>li')],
-				{
-					y: 14,
-					opacity: 0,
-					stagger: 0.2,
-					onStart: () => {
-						headerRef.current.classList.add('animate');
-					},
-					onComplete: () => {
-						headerRef.current.classList.remove('animate');
+		if (headerRef.current) {
+			gsap.timeline({ scrollTrigger: { trigger: headerRef.current, start: `-=${mobile ? 50 : 80} 80%` } })
+				.from([headerRef.current, cloudRef.current, q('.info-wrapper>p'), q('.info-tech>li')],
+					{
+						y: 16,
+						opacity: 0,
+						stagger: 0.1,
+						onStart: () => {
+							headerRef.current?.classList.add('animate');
+						},
+						onComplete: () => {
+							headerRef.current?.classList.remove('animate');
+						}
 					}
-				});
+				);
+		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [mobile]);
 
