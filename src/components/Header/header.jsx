@@ -1,6 +1,7 @@
 import React, { useRef, useState, useLayoutEffect, useMemo } from 'react'
 import { Link } from 'gatsby';
 import { gsap, Power3 } from 'gsap';
+import useArrayRefs from '../../hooks/useArrayRefs';
 // MUI
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -20,7 +21,8 @@ import MenuDrawer from '../Drawer/menu-drawer';
 const Header = () => {
 	const [openMenu, setOpenMenu] = useState(false);
 	const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 100 });
-	const isMobile = useMedia()
+	const isMobile = useMedia();
+	const [drawerRefs, setDrawerRefs] = useArrayRefs();
 	// Hamburger
 	const hamburgerRef = useRef(null);
 	const menuTl = useRef();
@@ -40,7 +42,7 @@ const Header = () => {
 				.to(hamburgerChildren[1], 0.200, { display: 'none' })
 				.add('rotateLine')
 				.to(hamburgerChildren[0], 0.350, { rotate: -225, ease: Power3.easeInOut }, 'rotateLine')
-				.to(hamburgerChildren[2], 0.350, { rotate: 225, ease: Power3.easeInOut }, 'rotateLine')
+				.to(hamburgerChildren[2], 0.350, { rotate: 225, ease: Power3.easeInOut }, 'rotateLine');
 		} else {
 			headerTl.current = gsap.timeline().add('start').from(
 				hEl(".nav-link"),
@@ -57,6 +59,7 @@ const Header = () => {
 
 	function handleOpenMenu () {
 		menuTl.current.play();
+		gsap.from(drawerRefs.current, { opacity: 0, y: 14, stagger: 0.1 });
 		setOpenMenu(true);
 	}
 
@@ -102,7 +105,7 @@ const Header = () => {
 					</Box>
 				</Container>
 			</StyledAppBar>
-			<MenuDrawer open={openMenu} onClose={handleCloseMenu} onOpen={handleOpenMenu} />
+			<MenuDrawer setRef={setDrawerRefs} open={openMenu} onClose={handleCloseMenu} onOpen={handleOpenMenu} />
 		</>
 	)
 }

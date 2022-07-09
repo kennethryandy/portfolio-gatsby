@@ -29,6 +29,7 @@ const OnPageLoad = ({ setPageLoad, setLoading }) => {
 					setLoading(false)
 				}
 			});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [setPageLoad]);
 
 	return (

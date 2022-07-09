@@ -71,29 +71,29 @@ export const NavLinks = styled('ul')(({ theme }) => ({
 }));
 
 
-const MenuDrawer = (props) => {
+const MenuDrawer = ({ setRef, ...props }) => {
 
 	return (
 		<>
-			<SwipeableDrawerStyled {...props} disableBackdropTransition>
+			<SwipeableDrawerStyled {...props} disableBackdropTransition keepMounted>
 				<MenuAside>
 					<StyledNav>
 						<NavLinks>
-							<li className="nav-link">
+							<li ref={setRef} className="nav-link">
 								<MuiLink underline="hover" component={Link} activeClassName="active" to="/about">About</MuiLink>
 							</li>
-							<li className="nav-link">
+							<li ref={setRef} className="nav-link">
 								<MuiLink underline="hover" component={Link} activeClassName="active" to="/skills">Skills</MuiLink>
 							</li>
-							<li className="nav-link">
+							<li ref={setRef} className="nav-link">
 								<MuiLink underline="hover" component={Link} activeClassName="active" to="/work">Work</MuiLink>
 							</li>
-							<li className="nav-link">
+							<li ref={setRef} className="nav-link">
 								<MuiLink underline="hover" component={Link} activeClassName="active" to="/contact">Contact</MuiLink>
 							</li>
 						</NavLinks>
 						<Box sx={{ overflowY: 'hidden' }}>
-							<Button variant="outlined" color="secondary">Resume</Button>
+							<Button ref={setRef} variant="outlined" color="secondary">Resume</Button>
 						</Box>
 					</StyledNav>
 				</MenuAside>

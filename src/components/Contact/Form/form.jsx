@@ -19,6 +19,7 @@ const Form = ({ tl, delay }) => {
 		if (tl) {
 			tl.from(refs.current, { y: 16, opacity: 0, stagger: 0.1, delay: delay ? delay : 0 }, 'start-contact')
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [tl, refs])
 
 	return (
