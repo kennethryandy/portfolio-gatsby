@@ -27,7 +27,7 @@ const HomeContact = () => {
 						contentRef.current?.children[0].classList.add('animate')
 					},
 					onComplete: () => {
-						contentRef.current.children[0].classList.remove('animate')
+						contentRef.current?.children[0].classList.remove('animate')
 					}
 				}, 'start-contact');
 		}

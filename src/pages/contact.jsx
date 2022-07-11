@@ -49,10 +49,10 @@ const Contact = () => {
 					stagger: 0.1,
 					delay: .6,
 					onStart: () => {
-						contentRef.current.children[0].classList.add('animate')
+						contentRef.current?.children[0].classList.add('animate')
 					},
 					onComplete: () => {
-						contentRef.current.children[0].classList.remove('animate')
+						contentRef.current?.children[0].classList.remove('animate')
 					}
 				}, 'start-contact');
 		}

@@ -57,5 +57,146 @@
 			"MUI",
 			"Open Trivia API"
 		]
+	},
+	{
+		"title": "Lets",
+		"imgName": "../images/lets.png",
+		"desc": "Lets is a rising application that offers services to the consumers through deliveries and taking care of your errands.",
+		"type": "project",
+		"url": "https://lets.com.ph",
+		"srcCodeUrl": "",
+		"techs": [
+			"Wordpress",
+			"React",
+			"Bootstrap",
+			"Google API's",
+			"SASS"
+		]
+	},
+	{
+		"title": "Rooche",
+		"imgName": "../images/rooche.png",
+		"type": "project",
+		"desc": "Rooche use only the latest and the best in our mobile app, game and web development projects and in creating responsive web design for better user interface, user experience of your brand. We also integrate the best SEO practices to make it easier for your to rank on search engines. Rooche is an all-in-one IT solutions online!",
+		"url": "https://rooche.net/",
+		"srcCodeUrl": "",
+		"techs": [
+			"Wordpress",
+			"Reflex-grid",
+			"Google API's",
+			"SASS"
+		]
+	},
+	{
+		"title": "Survey Form Projects",
+		"imgName": "../images/form-step.png",
+		"type": "project",
+		"desc": "A hearing aid company that needs multiple desing for their product and service, using HTML, SASS, vanilla javascript our team builds multiple step form to collect the data of the survey form.",
+		"url": "",
+		"srcCodeUrl": "https://github.com/kennethryandy/form-step-projects",
+		"techs": [
+			"HTML",
+			"Reflex-grid",
+			"SASS",
+			"Vanilla javascript"
+		]
+	},
+	{
+		"title": "Business Mentor UK",
+		"imgName": "../images/cnmentor.png",
+		"type": "project",
+		"url": "https://www.businessmentoruk.com",
+		"srcCodeUrl": "",
+		"techs": [
+			"Wordpress",
+			"Reflex-grid",
+			"SASS",
+			"Vanilla javascript"
+		]
+	},
+	{
+		"title": "Portrait Effect",
+		"imgName": "../images/no-photo-available.png",
+		"type": "plugin",
+		"desc": "Tools to make text looks like a photo.",
+		"url": "",
+		"srcCodeUrl": "https://github.com/kennethryandy/portrait-effect",
+		"techs": [
+			"Vite",
+			"React",
+			"MUI"
+		]
+	},
+	{
+		"title": "Weatherio",
+		"imgName": "../images/no-photo-available.png",
+		"type": "plugin",
+		"desc": "An app that tells the current weather and humidity default on your current location(you can search a different location).",
+		"url": "https://m9shu.csb.app/",
+		"srcCodeUrl": "https://github.com/kennethryandy/Weatherio",
+		"techs": [
+			"React",
+			"Bootstrap",
+			"OpenWeatherMap API"
+		]
+	},
+	{
+		"title": "Calculator",
+		"imgName": "../images/no-photo-available.png",
+		"type": "plugin",
+		"desc": "A simple calculator app.",
+		"url": "https://0jz9m.csb.app/",
+		"srcCodeUrl": "",
+		"techs": [
+			"React"
+		]
+	},
+	{
+		"title": "VSCode Setting",
+		"imgName": "../images/no-photo-available.png",
+		"type": "plugin",
+		"desc": "Visual studio code settings for your wordpress, react, and other frameworks. It also configures dark mode and folder icon and key shortcuts and bindings.",
+		"url": "",
+		"srcCodeUrl": "https://github.com/kennethryandy/VSCODE-SETTINGS",
+		"techs": [
+			"JSON"
+		]
+	},
+	{
+		"title": "Credit System",
+		"imgName": "../images/no-photo-available.png",
+		"type": "plugin",
+		"desc": "A Wordpress plugin that manage credit of the user.",
+		"url": "",
+		"srcCodeUrl": "https://github.com/kennethryandy/Credit-System",
+		"techs": [
+			"Wordpress",
+			"Reflex-grid"
+		]
+	},
+	{
+		"title": "Field Mapping",
+		"imgName": "../images/no-photo-available.png",
+		"type": "plugin",
+		"desc": "By uploading a spreadsheet (CSV, XLS, XLSX or ODS) you can alter the fields and values of the field.",
+		"url": "",
+		"srcCodeUrl": "https://github.com/kennethryandy/field-mapping",
+		"techs": [
+			"React",
+			"MUI",
+			"Laravel"
+		]
+	},
+	{
+		"title": "Video Thumbnail Plugin",
+		"imgName": "../images/no-photo-available.png",
+		"type": "plugin",
+		"desc": "A Wordpress plugin that accept video url(youtube or vimeo) and returns a thumbnail of that video with different sizes.",
+		"url": "",
+		"srcCodeUrl": "https://github.com/kennethryandy/video-thumbnail",
+		"techs": [
+			"Wordpress",
+			"SPACES API"
+		]
 	}
 ]

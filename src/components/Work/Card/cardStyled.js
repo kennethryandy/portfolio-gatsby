@@ -5,10 +5,6 @@ export const CardItem = styled(Box)(({ theme }) => ({
 	display: 'grid',
 	gridTemplateColumns: 'repeat(12, 1fr)',
 	gap: theme.spacing(2),
-	marginBottom: theme.spacing(20),
-	[theme.breakpoints.down('md')]: {
-		marginBottom: theme.spacing(10),
-	}
 }));
 
 export const CardItemImage = styled(Box)(({ theme }) => ({

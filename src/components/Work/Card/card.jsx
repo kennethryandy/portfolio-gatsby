@@ -22,7 +22,7 @@ const Card = ({ project, pos }) => {
 	}, [mobile, q]);
 
 	return (
-		<CardItem ref={cardItemRef}>
+		<CardItem ref={cardItemRef} className="card-item">
 			<CardItemImage className={pos ? 'card-image switch' : 'card-image'}>
 				<a href={project.url} target="_blank" rel="noopener noreferrer">
 					<GatsbyImage className='card-image-container' image={project.imgName.childImageSharp.gatsbyImageData} alt={project.title} />

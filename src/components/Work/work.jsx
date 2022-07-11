@@ -2,15 +2,17 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { gsap, Power2 } from 'gsap';
 import useToggleRubberBand from '../../hooks/useToggleRubberBand';
 import useMedia from '../../hooks/useMedia';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 // MUI
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { WorkContainer } from './workStyled';
 import Card from './Card/card';
 
 const query = graphql`
-	query allProject {
-		allProjectsJson {
+	query allFeaturedProject {
+		allProjectsJson(filter: {type: {eq: "featured"}}) {
 			nodes {
 				id
 				title
@@ -20,10 +22,7 @@ const query = graphql`
 				srcCodeUrl
 				imgName {
 					childImageSharp {
-						gatsbyImageData(
-							layout: FULL_WIDTH
-							placeholder: BLURRED
-						)
+						gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
 					}
 				}
 			}
@@ -50,7 +49,7 @@ const Work = () => {
 				}
 			})
 		}
-	}, [mobile]);
+	}, [mobile, projects]);
 
 	return (
 		<>
@@ -80,8 +79,25 @@ const Work = () => {
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">.</span>
 			</Typography>
 			<WorkContainer>
-				{projects.map((project, idx) => (<Card key={project.id} project={project} pos={idx % 2 === 0} />))}
+				{(projects.length > 0) && projects.map((project, idx) => (<Card key={project.id} project={project} pos={idx % 2 === 0} />))}
 			</WorkContainer>
+			<Box display="flex" justifyContent="center" marginTop={8}>
+				<Button
+					variant="outlined"
+					color="secondary"
+					component={Link}
+					to="/work"
+					sx={{
+						padding: {
+							sm: '12px 16px',
+							xs: '12px 16px',
+							md: '12px 32px'
+						}
+					}}
+				>
+					View More
+				</Button>
+			</Box>
 		</>
 	)
 }
