@@ -1,8 +1,8 @@
 module.exports = {
 	siteMetadata: {
-		title: `Gatsby Default Starter`,
-		description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-		author: `@gatsbyjs`,
+		title: `Web Developer`,
+		description: `Kenneth Ryan Dy is a web developer specializing in building exceptional digital experiences.`,
+		author: `@kennethryandy`,
 		siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
 	},
 	plugins: [
@@ -43,19 +43,14 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `gatsby-starter-default`,
-				short_name: `starter`,
+				name: `KennethRyanDy`,
+				short_name: `KennethRyanDy`,
 				start_url: `/`,
-				background_color: `#663399`,
-				// This will impact how browsers show your PWA/website
-				// https://css-tricks.com/meta-theme-color-and-trickery/
-				// theme_color: `#663399`,
+				background_color: `#0A1929`,
+				theme_color: "#64FFDA",
 				display: `minimal-ui`,
-				icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+				icon: `src/assets/images/KD-icon.png`
 			},
-		},
-		// this (optional) plugin enables Progressive Web App + Offline functionality
-		// To learn more, visit: https://gatsby.dev/offline
-		// `gatsby-plugin-offline`,
+		}
 	],
 }
