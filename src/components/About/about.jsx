@@ -65,6 +65,7 @@ const slugs = [
 	'androidstudio',
 	'typescript',
 	'vercel',
+	'vite',
 	'visualstudiocode',
 	'javascript',
 	'react',
@@ -92,7 +93,6 @@ const slugs = [
 	'jquery',
 	'firebase',
 	'filezilla',
-	'django'
 ]
 
 const About = () => {
