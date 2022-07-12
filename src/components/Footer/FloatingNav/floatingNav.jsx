@@ -1,5 +1,5 @@
 import React, { useRef, useLayoutEffect } from 'react';
-import { gsap, Power2 } from 'gsap';
+import { gsap, Back } from 'gsap';
 import useMedia from '../../../hooks/useMedia';
 import { StyledFloatingNav } from './floatingNavStyle';
 
@@ -9,7 +9,7 @@ const FloatingNav = () => {
 	const rightNavRef = useRef(null);
 
 	useLayoutEffect(() => {
-		gsap.timeline({ defaults: { ease: Power2.easeInOut } })
+		gsap.timeline({ defaults: { ease: Back.easeInOut } })
 			.from([leftNavRef.current, rightNavRef.current], { y: 16, opacity: 0, delay: 1.6 });
 	}, [mobile]);
 

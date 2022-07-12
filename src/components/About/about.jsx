@@ -71,7 +71,7 @@ const slugs = [
 	'react',
 	'materialui',
 	'gatsby',
-	'vue',
+	'vuedotjs',
 	'laravel',
 	'wordpress',
 	'docker',
