@@ -79,7 +79,7 @@ const Hero = () => {
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">b</span>
 			</HeaderText>
 			<Typography sx={{ maxWidth: 540 }} ref={setRefs}>
-				{"I’m a software engineer specializing in building exceptional digital experiences."}
+				{"I’m a web developer specializing in building exceptional digital experiences."}
 			</Typography>
 			<Box ref={setRefs}>
 				<HeroButton variant="outlined" color="secondary">View Resume</HeroButton>

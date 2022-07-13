@@ -60,7 +60,7 @@ const Contact = () => {
 
 	return (
 		<Layout loading={loading} setLoading={setLoading}>
-			<Seo title="Home" />
+			<Seo title="Contact | Kenneth Ryan Dy" />
 			<AppbarSpacer />
 			<Section>
 				<Grid container spacing={4} ref={containerRef}>

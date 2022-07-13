@@ -15,7 +15,7 @@ const Section = styled('section')`
 const IndexPage = () => {
 	return (
 		<Layout>
-			<Seo title="Home" />
+			<Seo title="Kenneth Ryan Dy" />
 			<Section sx={{
 				display: 'flex',
 				flexDirection: 'column',

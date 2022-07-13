@@ -26,7 +26,7 @@ const AppbarSpacer = styled('div')(({ theme }) => ({
 const AboutPage = () => {
 	return (
 		<Layout>
-			<Seo title="Home" />
+			<Seo title="About | Kenneth Ryan Dy" />
 			<AppbarSpacer />
 			<Section>
 				<About />

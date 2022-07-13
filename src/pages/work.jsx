@@ -12,6 +12,7 @@ import Project from '../components/Work/Project/projects';
 import useArrayRefs from '../hooks/useArrayRefs';
 import Plugins from '../components/Work/Plugins/plugins';
 import useMedia from '../hooks/useMedia';
+import Seo from '../components/seo';
 
 const Section = styled('section')`
 	display: flex;
@@ -99,6 +100,7 @@ const WorkPage = () => {
 
 	return (
 		<Layout setLoading={setLoading}>
+			<Seo title="Works | Kenneth Ryan Dy" />
 			<AppbarSpacer />
 			<Section>
 				<Typography ref={headerRef} variant="h1" color="secondary" sx={{ cursor: 'default', marginBottom: 1 }}>

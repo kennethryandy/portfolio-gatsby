@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import useToggleRubberBand from '../hooks/useToggleRubberBand';
+import Seo from '../components/seo';
 
 const BrMobile = styled('br')(({ theme }) => ({
 	[theme.breakpoints.up('sm')]: {
@@ -118,6 +119,7 @@ const Skills = () => {
 
 	return (
 		<Layout setLoading={setLoading}>
+			<Seo title="Skills | Kenneth Ryan Dy" />
 			<AppbarSpacer />
 			<Section>
 				<Typography ref={headerRef} variant="h1" color="secondary" textAlign="center" sx={{ width: "100%", cursor: 'default', marginBottom: 5 }}>
