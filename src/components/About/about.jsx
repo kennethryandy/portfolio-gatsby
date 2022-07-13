@@ -49,12 +49,19 @@ const CloudWrapper = styled('div')(({ theme }) => ({
 	width: '100%',
 	"& canvas": {
 		minWidth: '70vh',
+		"& a": {
+			pointerEvents: 'none'
+		}
 	},
 	[theme.breakpoints.down('md')]: {
-		paddingTop: theme.spacing(5),
+		paddingTop: theme.spacing(3),
 		position: 'initial',
+		"& #canvas-container": {
+			width: '100%',
+		},
 		"& canvas": {
-			minWidth: '100%',
+			width: "60vw !important",
+			minWidth: "60vw"
 		}
 	}
 }));
@@ -163,7 +170,7 @@ const About = () => {
 						</InfoTech>
 					</div>
 				</Grid>
-				<Grid item md={6} position="relative" ref={cloudRef}>
+				<Grid item md={6} position="relative" ref={cloudRef} sx={{ width: '100%' }}>
 					{icons &&
 						<CloudWrapper>
 							<Cloud

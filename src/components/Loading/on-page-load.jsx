@@ -10,7 +10,17 @@ const PageLoadContainer = styled(Box)(({ theme }) => ({
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'center',
-	backgroundColor: darken(theme.palette.background.default, .2)
+	backgroundColor: darken(theme.palette.background.default, .2),
+	"& .logo-icon": {
+		opacity: 0,
+		"&__line": {
+			strokeDasharray: 35,
+			strokeDashoffset: 125
+		},
+		"&__letter": {
+			opacity: 0
+		}
+	}
 }));
 
 const OnPageLoad = ({ setPageLoad, setLoading }) => {
@@ -20,13 +30,14 @@ const OnPageLoad = ({ setPageLoad, setLoading }) => {
 		if (!logoRef.current) return;
 		const logoRefChild = logoRef.current.children;
 		gsap.timeline({ defaults: { ease: Back.easeIn.config(1) } })
-			.fromTo(logoRefChild[0], { strokeDasharray: 40, strokeDashoffset: 120 }, { strokeDashoffset: 0, strokeDasharray: 140, duration: 1.2 })
-			.from([logoRefChild[1], logoRefChild[2]], { fill: "transparent", stagger: .04 })
+			.to(logoRef.current, { opacity: 1 })
+			.to(logoRefChild[0], { strokeDashoffset: 0, strokeDasharray: 140, duration: 1.2 })
+			.to([logoRefChild[1], logoRefChild[2]], { opacity: 1, stagger: .02 })
 			.to(logoRef.current, { scale: 0, opacity: 0 })
 			.eventCallback("onComplete", function () {
 				setPageLoad(false);
 				if (setLoading) {
-					setLoading(false)
+					setLoading(false);
 				}
 			});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -39,6 +50,7 @@ const OnPageLoad = ({ setPageLoad, setLoading }) => {
 				<Logo
 					ref={logoRef}
 					parentProps={{
+						className: "logo-icon",
 						width: "80",
 						height: "80"
 					}}

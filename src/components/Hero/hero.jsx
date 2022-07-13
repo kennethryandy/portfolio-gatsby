@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from 'react';
 import { gsap, Power2 } from 'gsap';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { IntroductionText, HeroButton, HeaderText } from './heroStyles';
+import { IntroductionText, HeroButton, HeaderText, BrMobile } from './heroStyles';
 import useToggleRubberBand from '../../hooks/useToggleRubberBand';
 import useArrayRefs from '../../hooks/useArrayRefs';
 
@@ -70,6 +70,7 @@ const Hero = () => {
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">o</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">r</span>
 				&nbsp;
+				<BrMobile />
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">t</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">h</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">e</span>

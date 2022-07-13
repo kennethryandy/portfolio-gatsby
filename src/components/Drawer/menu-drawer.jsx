@@ -1,5 +1,5 @@
 import React from 'react';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Drawer from '@mui/material/Drawer';
 import PropTypes from "prop-types";
 import { Link } from 'gatsby';
 import MuiLink from '@mui/material/Link';
@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 
-const SwipeableDrawerStyled = styled(SwipeableDrawer)(({ theme }) => ({
+const DrawerStyled = styled(Drawer)(({ theme }) => ({
 	zIndex: theme.zIndex.appBar - 1,
 	"& .MuiPaper-root": {
 		backgroundColor: theme.palette.background.default,
@@ -75,7 +75,7 @@ const MenuDrawer = ({ setRef, ...props }) => {
 
 	return (
 		<>
-			<SwipeableDrawerStyled {...props} disableBackdropTransition keepMounted>
+			<DrawerStyled {...props} disableBackdropTransition keepMounted>
 				<MenuAside>
 					<StyledNav>
 						<NavLinks>
@@ -97,7 +97,7 @@ const MenuDrawer = ({ setRef, ...props }) => {
 						</Box>
 					</StyledNav>
 				</MenuAside>
-			</SwipeableDrawerStyled>
+			</DrawerStyled>
 		</>
 	)
 };

@@ -28,7 +28,7 @@ const StyledContainer = styled(Container)(({ theme }) => ({
 }));
 
 const Layout = ({ children, loading, setLoading }) => {
-	const [pageLoad, setPageLoad] = useState(true);
+	const [pageLoad, setPageLoad] = useState(false);
 
 	return (
 		<>

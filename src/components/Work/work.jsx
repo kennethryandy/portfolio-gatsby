@@ -7,7 +7,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { WorkContainer } from './workStyled';
+import { BrMobile, WorkContainer } from './workStyled';
 import Card from './Card/card';
 
 const query = graphql`
@@ -70,7 +70,8 @@ const Work = () => {
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">’</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">v</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">e</span>
-				&nbsp;
+				{!mobile && <span>&nbsp;</span>}
+				<BrMobile />
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">B</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">u</span>
 				<span onMouseEnter={toggleRubberBand} aria-hidden="true">i</span>

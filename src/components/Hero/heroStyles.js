@@ -38,3 +38,9 @@ export const HeaderText = styled(Typography)(({ theme }) => ({
 		}
 	}
 }));
+
+export const BrMobile = styled('br')(({ theme }) => ({
+	[theme.breakpoints.up('sm')]: {
+		display: 'none'
+	}
+}));
