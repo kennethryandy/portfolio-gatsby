@@ -1,4 +1,5 @@
 import React, { useLayoutEffect } from 'react';
+import { Link } from 'gatsby';
 import { gsap, Power2 } from 'gsap';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -84,7 +85,7 @@ const Hero = () => {
 			</Typography>
 			<Box ref={setRefs}>
 				<HeroButton variant="outlined" color="secondary" component="a" href="/resume.pdf" target="_blank">View Resume</HeroButton>
-				<HeroButton variant="outlined" color="secondary">Contact Me!</HeroButton>
+				<HeroButton variant="outlined" color="secondary" component={Link} to="/contact">Contact Me!</HeroButton>
 			</Box>
 		</>
 	)

@@ -4,6 +4,7 @@ import useMedia from '../../../hooks/useMedia';
 import { GatsbyImage } from 'gatsby-plugin-image';
 // MUI
 import { CardItem, CardItemImage, CardItemInfo, CardItemInfoContent, CardItemTech, CardLinks } from './cardStyled';
+import MuiLink from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 
@@ -40,19 +41,25 @@ const Card = ({ project, pos }) => {
 					))}
 				</CardItemTech>
 				<CardLinks className="card-info-links" sx={{ justifyContent: pos ? 'flex-end' : 'flex-start' }}>
-					<Tooltip title="Source Code" arrow>
-						<a href={project.srcCodeUrl} target="_blank" rel="noopener noreferrer">
-							<span className="icon-github" aria-label="github" />
-						</a>
-					</Tooltip>
+					{!!project.srcCodeUrl ? (
+						<Tooltip title="Source Code" arrow>
+							<MuiLink href={project.srcCodeUrl} target="_blank" rel="noopener noreferrer">
+								<span className="icon-github" aria-label="github" />
+							</MuiLink>
+						</Tooltip>
+					) :
+						<Tooltip title="Private Repo" arrow>
+							<span className="icon-github disabled" aria-label="github" />
+						</Tooltip>
+					}
 					<Tooltip title="External Link" arrow>
-						<a href={project.url} target="_blank" rel="noopener noreferrer">
+						<MuiLink href={project.url} target="_blank" rel="noopener noreferrer">
 							<span className="icon-external-link" aria-label="external link" />
-						</a>
+						</MuiLink>
 					</Tooltip>
 				</CardLinks>
 			</CardItemInfo>
-		</CardItem>
+		</CardItem >
 	)
 }
 

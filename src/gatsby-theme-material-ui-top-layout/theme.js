@@ -63,8 +63,12 @@ const theme = createTheme({
 	},
 	components: {
 		MuiTooltip: {
-			fontFamily: ['Fira Code', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto',].join(','),
-			fontSize: "0.5825rem"
+			styleOverrides: {
+				tooltip: {
+					fontFamily: ['Fira Code', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto',].join(','),
+					fontSize: "0.5825rem"
+				}
+			}
 		},
 		MuiButton: {
 			styleOverrides: {

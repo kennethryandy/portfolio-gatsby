@@ -108,6 +108,13 @@ export const CardLinks = styled(Box)(({ theme }) => ({
 		transition: theme.transitions.create(['color'], { duration: '250ms' }),
 		"&:hover": {
 			color: theme.palette.secondary.main
+		},
+	},
+	"& .disabled": {
+		opacity: .5,
+		cursor: 'not-allowed',
+		"&:hover": {
+			color: 'inherit'
 		}
 	}
 }));
