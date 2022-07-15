@@ -93,7 +93,7 @@ const MenuDrawer = ({ setRef, ...props }) => {
 							</li>
 						</NavLinks>
 						<Box sx={{ overflowY: 'hidden' }}>
-							<Button ref={setRef} variant="outlined" color="secondary">Resume</Button>
+							<Button ref={setRef} component="a" href="/resume.pdf" target="_blank" rel="noopener noreferrer" variant="outlined" color="secondary">Resume</Button>
 						</Box>
 					</StyledNav>
 				</MenuAside>

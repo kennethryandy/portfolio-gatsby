@@ -8,6 +8,7 @@ import { FormStyled, ContactButton } from './formStyled';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import Dialog from '../../dialog';
+import { validateEmail } from '../../../utils/validateEmail';
 
 const inputStyled = {
 	"& .MuiInputLabel-root:not(.Mui-focused)": { color: "text.primary" },
@@ -18,8 +19,10 @@ const inputStyled = {
 
 const Form = ({ tl, delay }) => {
 	const [refs, setRefs] = useArrayRefs();
+	const [email, setEmail] = useState("");
 	const [openDia, setOpenDia] = useState(false);
 	const [openBD, setOpenBD] = useState(false);
+	const [invalidEmail, setInvalidEmail] = useState(false);
 
 	useLayoutEffect(() => {
 		if (tl) {
@@ -28,9 +31,20 @@ const Form = ({ tl, delay }) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [tl, refs]);
 
+	function handleEmailChange (e) {
+		setEmail(e.target.value);
+		if (invalidEmail) {
+			setInvalidEmail(false);
+		}
+	}
+
 	function handleSubmit (e) {
 		e.preventDefault();
 		setOpenBD(true);
+		if (!validateEmail(email)) {
+			setInvalidEmail(true);
+			return;
+		}
 		emailjs.sendForm('service_wfa0yft', 'template_cew8hbg', e.currentTarget, 'user_lwR1O0HcFGB2BCnsNBfVw')
 			.then((result) => {
 				handleCloseBD();
@@ -57,7 +71,7 @@ const Form = ({ tl, delay }) => {
 			<FormStyled onSubmit={handleSubmit} autoComplete="off">
 				<Box sx={{ display: "flex", gap: 2 }}>
 					<Input ref={setRefs} margin="dense" sx={inputStyled} label="Name" name="name" required variant="standard" color="secondary" fullWidth />
-					<Input ref={setRefs} margin="dense" sx={inputStyled} label="Email" name="email" required type="email" variant="standard" color="secondary" fullWidth />
+					<Input ref={setRefs} error={invalidEmail} helperText={invalidEmail && "Please enter a valid email"} margin="dense" sx={inputStyled} value={email} onChange={handleEmailChange} label="Email" name="email" required type="email" variant="standard" color="secondary" fullWidth />
 				</Box>
 				<Box>
 					<Input ref={setRefs} margin="dense" sx={inputStyled} label="Subject" name="subject" required variant="standard" color="secondary" fullWidth />

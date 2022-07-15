@@ -98,7 +98,7 @@ const Header = () => {
 									<MuiLink underline="hover" component={Link} activeClassName="active" to="/contact">Contact</MuiLink>
 								</li>
 								<li className="nav-link">
-									<Button variant="outlined" color="secondary" component="a" href="/resume.pdf" target="_blank">Resume</Button>
+									<Button variant="outlined" color="secondary" component="a" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</Button>
 								</li>
 							</NavLinks>
 						)}

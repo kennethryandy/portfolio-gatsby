@@ -121,7 +121,7 @@ const Skills = () => {
 		<Layout setLoading={setLoading}>
 			<Seo title="Skills | Kenneth Ryan Dy" />
 			<AppbarSpacer />
-			<Section>
+			<Section sx={{ overflow: 'hidden' }}>
 				<Typography ref={headerRef} variant="h1" color="secondary" textAlign="center" sx={{ width: "100%", cursor: 'default', marginBottom: 5 }}>
 					<span onMouseEnter={toggleRubberBand} aria-hidden="true">T</span>
 					<span onMouseEnter={toggleRubberBand} aria-hidden="true">e</span>

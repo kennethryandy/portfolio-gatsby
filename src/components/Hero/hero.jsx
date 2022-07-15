@@ -84,7 +84,7 @@ const Hero = () => {
 				{"I’m a web developer specializing in building exceptional digital experiences."}
 			</Typography>
 			<Box ref={setRefs}>
-				<HeroButton variant="outlined" color="secondary" component="a" href="/resume.pdf" target="_blank">View Resume</HeroButton>
+				<HeroButton variant="outlined" color="secondary" component="a" href="/resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</HeroButton>
 				<HeroButton variant="outlined" color="secondary" component={Link} to="/contact">Contact Me!</HeroButton>
 			</Box>
 		</>

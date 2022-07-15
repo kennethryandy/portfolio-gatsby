@@ -19,10 +19,10 @@ const SlideStyled = styled(Slide)`
 `;
 
 
-const DialogHeader = styled('div')(({ theme }) => ({
-	width: '100%',
-	textAlign: 'center',
-}));
+const DialogHeader = styled('div')`
+	width: 100%;
+	text-align: center;
+`;
 
 const DialogIcon = styled('div')(({ theme }) => ({
 	backgroundColor: theme.palette.secondary.dark,
@@ -43,6 +43,14 @@ const DialogIcon = styled('div')(({ theme }) => ({
 		height: '3em',
 	}
 }));
+
+const StyledDialogContent = styled(DialogContent)(({ theme }) => ({
+	textAlign: 'center',
+	[theme.breakpoints.down('md')]: {
+		padding: `20px ${theme.spacing(2)}`
+	}
+}));
+
 
 const Dialog = ({ open, handleClose }) => {
 	return (
@@ -67,15 +75,15 @@ const Dialog = ({ open, handleClose }) => {
 					<DialogIcon>
 						<CheckIcon />
 					</DialogIcon>
-					<DialogTitle id="alert-contact-title" sx={{ paddingTop: 7 }}>
+					<DialogTitle id="alert-contact-title" sx={{ paddingTop: "3.6em" }}>
 						Awesome!
 					</DialogTitle>
 				</DialogHeader>
-				<DialogContent>
+				<StyledDialogContent>
 					<DialogContentText id="alert-contact-description">
 						Your message has been successfully sent.
 					</DialogContentText>
-				</DialogContent>
+				</StyledDialogContent>
 				<DialogActions sx={{ paddingX: 3, paddingBottom: 3 }}>
 					<Button sx={{
 						fontSize: '1rem',
